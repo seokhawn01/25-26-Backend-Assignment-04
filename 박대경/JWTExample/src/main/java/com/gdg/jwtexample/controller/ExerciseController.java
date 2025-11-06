@@ -1,9 +1,9 @@
 package com.gdg.jwtexample.controller;
 
-import com.gdg.jwtexample.dto.post.PostCreateReq;
-import com.gdg.jwtexample.dto.post.PostInfoRes;
-import com.gdg.jwtexample.dto.post.PostUpdateReq;
-import com.gdg.jwtexample.service.PostService;
+import com.gdg.jwtexample.dto.exercise.ExerciseCreateReq;
+import com.gdg.jwtexample.dto.exercise.ExerciseInfoRes;
+import com.gdg.jwtexample.dto.exercise.ExerciseUpdateReq;
+import com.gdg.jwtexample.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,26 +23,26 @@ import java.security.Principal;
 @RequestMapping("/post")
 public class PostController {
 
-    private final PostService postService;
+    private final ExerciseService exerciseService;
 
     @PostMapping
-    public ResponseEntity<PostInfoRes> createPost(Principal principal, @RequestBody PostCreateReq postCreateReq) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(postService.createPost(principal, postCreateReq));
+    public ResponseEntity<ExerciseInfoRes> createPost(Principal principal, @RequestBody ExerciseCreateReq exerciseCreateReq) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(exerciseService.createPost(principal, exerciseCreateReq));
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<PostInfoRes> getPost(@PathVariable Long postId) {
-        return ResponseEntity.ok(postService.getPostInfo(postId));
+    public ResponseEntity<ExerciseInfoRes> getPost(@PathVariable Long postId) {
+        return ResponseEntity.ok(exerciseService.getPostInfo(postId));
     }
 
     @PatchMapping("/{postId}")
-    public ResponseEntity<PostInfoRes> updatePost(Principal principal, @PathVariable Long postId, @RequestBody PostUpdateReq postUpdateReq) {
-        return ResponseEntity.ok(postService.updatePost(principal, postId, postUpdateReq));
+    public ResponseEntity<ExerciseInfoRes> updatePost(Principal principal, @PathVariable Long postId, @RequestBody ExerciseUpdateReq exerciseUpdateReq) {
+        return ResponseEntity.ok(exerciseService.updatePost(principal, postId, exerciseUpdateReq));
     }
 
     @DeleteMapping("/{postId}")
     public ResponseEntity<Void> deletePost(Principal principal, @PathVariable Long postId) {
-        postService.deletePost(principal, postId);
+        exerciseService.deletePost(principal, postId);
         return ResponseEntity.noContent().build();
     }
 }
