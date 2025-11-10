@@ -8,6 +8,7 @@ import lombok.*;
 @Entity
 public class User {
 
+    private String refreshToken;
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -39,5 +40,8 @@ public class User {
                 .name(name)
                 .role(Role.ROLE_USER)
                 .build();
+    }
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

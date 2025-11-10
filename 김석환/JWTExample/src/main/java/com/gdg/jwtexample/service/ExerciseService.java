@@ -24,7 +24,7 @@ public class ExerciseService {
                 Exercise.builder()
                         .name(request.name())
                         .weight(request.weight())
-                        .rep(request.rep())
+                        .repeat(request.repeats())
                         .user(userService.getByEmail(principal.getName())) // ★ email로 조회
                         .build()
         );
@@ -44,7 +44,7 @@ public class ExerciseService {
         exercise.update(
                 request.name() != null ? request.name() : exercise.getName(),
                 request.weight() != 0 ? request.weight() : exercise.getWeight(),
-                request.rep() != 0 ? request.rep() : exercise.getRep()
+                request.repeats() != 0 ? request.repeats() : exercise.getRepeats()
         );
         return ExerciseInfoRes.fromEntity(exercise);
     }

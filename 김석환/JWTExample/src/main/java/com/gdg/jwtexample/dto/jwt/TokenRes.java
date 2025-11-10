@@ -4,6 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record TokenRes(
-        String accessToken
+        String accessToken,
+        String refrestToken
 ) {
 }

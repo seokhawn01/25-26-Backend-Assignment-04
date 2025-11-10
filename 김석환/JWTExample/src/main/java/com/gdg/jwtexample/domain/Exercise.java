@@ -28,7 +28,7 @@ public class Exercise {
     private int weight;
 
     @Column(nullable = false)
-    private int rep;
+    private int repeats;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -41,16 +41,16 @@ public class Exercise {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Exercise(String name, int weight, int rep, User user) {
+    public Exercise(String name, int weight, int repeat, User user) {
         this.name = name;
         this.weight = weight;
-        this.rep = rep;
+        this.repeats = repeat;
         this.user = user;
     }
 
-    public void update(String name, int weight, int rep) {
+    public void update(String name, int weight, int repeat) {
         this.name = name;
         this.weight = weight;
-        this.rep = rep;
+        this.repeats = repeats;
     }
 }

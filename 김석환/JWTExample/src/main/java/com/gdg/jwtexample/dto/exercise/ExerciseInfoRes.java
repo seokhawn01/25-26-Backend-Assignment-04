@@ -10,7 +10,7 @@ public record ExerciseInfoRes(
         Long id,
         String name,
         int weight,
-        int rep,
+        int repeats,
         String userName,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
@@ -20,7 +20,7 @@ public record ExerciseInfoRes(
                 .id(exercise.getId())
                 .name(exercise.getName())
                 .weight(exercise.getWeight())
-                .rep(exercise.getRep())
+                .repeats(exercise.getRepeats())
                 .userName(exercise.getUser().getName())
                 .createdAt(exercise.getCreatedAt())
                 .updatedAt(exercise.getUpdatedAt())

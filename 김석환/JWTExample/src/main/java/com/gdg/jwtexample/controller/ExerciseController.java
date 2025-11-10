@@ -38,4 +38,5 @@ public class ExerciseController {
         exerciseService.delete(principal, id);
         return ResponseEntity.noContent().build();
     }
+
 }
